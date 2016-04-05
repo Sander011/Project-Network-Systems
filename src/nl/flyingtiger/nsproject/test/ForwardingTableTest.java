@@ -1,6 +1,6 @@
 import nl.flyingtiger.nsproject.ForwardingTable;
 import nl.flyingtiger.nsproject.Util.TableEntry;
-import nl.flyingtiger.nsproject.Util.utils;
+import nl.flyingtiger.nsproject.Util.Utils;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,8 +8,6 @@ import org.junit.Test;
 import java.io.UnsupportedEncodingException;
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
-import java.nio.ByteBuffer;
-import java.nio.CharBuffer;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +19,7 @@ import static org.junit.Assert.*;
 public class ForwardingTableTest {
 
     private ForwardingTable table;
-    private utils utils = new utils();
+    private Utils utils = new Utils();
 
     @Before
     public void setUp() throws Exception {
