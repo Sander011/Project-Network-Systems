@@ -2,7 +2,7 @@ package nl.flyingtiger.nsproject.test; /**
  * Created by Ties on 5-4-2016.
  */
 
-import nl.flyingtiger.nsproject.Broadcast;
+import org.junit.Assert;
 import nl.flyingtiger.nsproject.ForwardingTable;
 import nl.flyingtiger.nsproject.Transmission;
 import org.junit.Before;
@@ -17,7 +17,6 @@ public class SimpleBroadcastTest {
     private ForwardingTable table;
     private Transmission transmission;
     private MulticastSocket socket;
-    private Broadcast broadcast;
     
     @Before
     public void setUp() {
@@ -27,12 +26,13 @@ public class SimpleBroadcastTest {
 
         this.table = new ForwardingTable();
         this.transmission = new Transmission(socket, table);
-        this.broadcast = new Broadcast(transmission, table);
     }
     
     @Test
     public void test() {
         transmission.send("hoi broertjes!!");
+        System.out.println("Broadcasted");
+
+        Assert.assertEquals(true, true);
     }
-    
 }
