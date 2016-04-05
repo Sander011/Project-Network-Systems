@@ -1,0 +1,38 @@
+HEADER:
+
+Elk datapakket dat verstuurd wordt heeft in de header staan:
+(IN DEZE VOLGORDE)
+
+Type pakket			1 byte
+Source addres			1 byte
+Destination addres		1 byte
+Sequence Number,		4 bytes
+Acknowledgement Number,		4 bytes
+Checksum			2 bytes
+Encryption 			1 byte
+
+TYPE PAKKET:
+Geeft aan welk soort pakket er is verstuurd (tekst, forwarding table, file, enz.)
+(SYN, ACK)
+
+Source addres:
+Het nummer van de computer waar het pakket vandaan komt
+
+Destination addres:
+Het nummer van het pakket waar het heen moet
+
+Sequence Number:
+Sequence Number van het pakket
+
+Acknowledgement Number:
+Acknowledgement number van het pakket
+
+Checksum:
+De checksum van het pakket
+
+Encryption:
+Geeft aan welke encryption scheme we gebruiken.
+
+
+
+
