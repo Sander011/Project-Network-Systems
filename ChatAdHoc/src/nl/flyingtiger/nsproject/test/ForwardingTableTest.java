@@ -36,6 +36,8 @@ public class ForwardingTableTest {
             assertTrue(tableEntry.getValue().getSeqNumber() == 0);
         }
         System.out.println(table.toString());
+        System.out.println(table.toByteArray());
+        System.out.println(table.toByteArray().toString());
     }
 
 }

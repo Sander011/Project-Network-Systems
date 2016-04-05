@@ -1,5 +1,6 @@
 package nl.flyingtiger.nsproject;
 
+import nl.flyingtiger.nsproject.Util.Payload;
 import nl.flyingtiger.nsproject.Util.TableEntry;
 
 import java.net.Inet4Address;
@@ -10,7 +11,7 @@ import java.util.Map;
 /**
  * Created by sander on 5-4-16.
  */
-public class ForwardingTable {
+public class ForwardingTable implements Payload {
     String address = "";
 
     HashMap<String, TableEntry> table = new HashMap<String, TableEntry>();
@@ -40,5 +41,10 @@ public class ForwardingTable {
 
 
         return result;
+    }
+
+    @Override
+    public byte[] toByteArray() {
+        return table.toString().getBytes();
     }
 }
