@@ -4,6 +4,7 @@ package nl.flyingtiger.nsproject.test; /**
 
 import nl.flyingtiger.nsproject.ForwardingTable;
 import nl.flyingtiger.nsproject.Transmission;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,9 +15,16 @@ import java.util.Observer;
 
 public class SimpleReceiveTest {
     private class Receiver extends Thread implements Observer {
+        private String msg = "";
+    
+        public String getMsg() {
+            return msg;
+        }
+
         @Override
         public void update(Observable o, Object arg) {
             System.out.println(arg);
+            msg = (String) arg;
         }
 
         @Override
@@ -44,12 +52,16 @@ public class SimpleReceiveTest {
 
         this.table = new ForwardingTable();
         this.transmission = new Transmission(socket, table);
-
-        Receiver receiver = new Receiver();
-        transmission.addObserver(receiver);
-        receiver.start();
     }
 
     @Test
-    private void test() {}
+    private void test() {
+        Receiver receiver = new Receiver();
+        transmission.addObserver(receiver);
+        receiver.start();
+
+        String msg = receiver.getMsg();
+
+        Assert.assertEquals("hoi broertjes!!", msg);
+    }
 }
