@@ -24,6 +24,10 @@ public class ForwardingTable {
         table.put(address, new TableEntry("0", 0, 0));
     }
 
+    public HashMap getTable() {
+        return this.table;
+    }
+
     public String toString() {
         String result = "";
 
