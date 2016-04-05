@@ -2,7 +2,7 @@ package nl.flyingtiger.nsproject;
 
 import nl.flyingtiger.nsproject.Util.Payload;
 import nl.flyingtiger.nsproject.Util.TableEntry;
-import nl.flyingtiger.nsproject.Util.utils;
+import nl.flyingtiger.nsproject.Util.Utils;
 
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class ForwardingTable implements Payload {
     private String address = "";
-    private utils utils = new utils();
+    private Utils utils = new Utils();
     private HashMap<String, TableEntry> table = new HashMap<String, TableEntry>();
 
     public ForwardingTable() {
