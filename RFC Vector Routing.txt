@@ -1,0 +1,18 @@
+ROUTING PROTOCOL:
+Het routing protocol is gebaseerd op distance vector routing..
+
+Periodiek stuurt elke node zijn forwarding table en versienummer door.
+In de forwarding table staat opgeslagen:
+
+1. Via welke node hij pakketten met een bepaalde destination moet versturen.	(doorstuuradres)
+2. Hoeveel hops het kost om een node te bereiken.				(hopcount)
+3. Het versienummer van de te bereiken nodes.					(versienummer)
+
+Bij het ontvangen van een forwarding table wordt een node toegevoegd/veranderd als:
+
+1. Deze node nog niet in de forwarding table staat. (Toevoegen: doorstuuradres, hopcount en versienummer)
+2. De node sneller (=via een lagere hopcount) te bereiken is via een andere node. (Aanpassen: hopcount, doorstuuradres)
+3. De ontvangen node een hoger versienummer heeft dan opgeslagen in de forwarding table. (Aanpassen: versienummer, hopcount, doorstuuradres).
+
+Wanneer een node merkt dat zijn buren veranderd zijn (er is iemand weg gegaan/er is iemand bij gekomen) verhoogd hij zijn versienummer en 
+verstuurt hij een update naar zijn buren. De andere nodes merken het verschil in versienummer en zullen dan hun forwarding table aanpassen.

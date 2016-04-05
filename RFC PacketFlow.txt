@@ -1,0 +1,7 @@
+PACKET FLOW:
+
+Wanneer er een pakket verstuurd wordt, geeft het sequence number aan waar in de totale data het pakket zich bevindt.
+Als dit pakket ontvangen moet, wordt als Ack doorgegeven het volgende sequence number dat verwacht wordt.
+
+Als de ontvanger 3 dub ack's binnenkrijgt, verstuurt hij het pakket opnieuw.
+Ook na een timeout van x seconden verstuurt hij het pakket opnieuw.
