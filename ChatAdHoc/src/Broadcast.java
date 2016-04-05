@@ -4,14 +4,18 @@
 public class Broadcast implements Runnable {
     private static final int TIME = 5;
     private Transmission trans;
+    private ForwardingTable forwardingTable;
 
-    public Broadcast(Transmission t) {
-        this.trans = t;
+    public Broadcast(Transmission trans, ForwardingTable table) {
+        this.trans = trans;
     }
 
     @Override
     public void run() {
-        //broadcast
+        boolean isActive = true;
+        while(isActive) {
+            trans.send();
+        }
     }
 
     public void start() {
