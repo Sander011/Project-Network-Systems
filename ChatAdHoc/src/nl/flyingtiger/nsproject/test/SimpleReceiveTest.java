@@ -16,7 +16,7 @@ import java.util.Observer;
 public class SimpleReceiveTest {
     private class Receiver extends Thread implements Observer {
         private String msg = "";
-    
+
         public String getMsg() {
             return msg;
         }
