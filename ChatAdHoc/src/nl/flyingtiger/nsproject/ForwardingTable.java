@@ -1,9 +1,9 @@
-import Util.TableEntry;
+package nl.flyingtiger.nsproject;
 
-import java.lang.reflect.Array;
+import nl.flyingtiger.nsproject.Util.TableEntry;
+
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 

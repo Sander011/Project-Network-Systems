@@ -1,4 +1,6 @@
-package test;
+package nl.flyingtiger.nsproject.test;
+
+import nl.flyingtiger.nsproject.ForwardingTable;
 
 import static org.junit.Assert.*;
 

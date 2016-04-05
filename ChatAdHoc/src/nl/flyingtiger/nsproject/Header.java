@@ -1,3 +1,7 @@
+package nl.flyingtiger.nsproject;
+
+import nl.flyingtiger.nsproject.Util.TypeOfPacket;
+
 /**
  * Created by Jasper on 5-4-2016.
  */
