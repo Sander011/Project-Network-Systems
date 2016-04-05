@@ -1,9 +1,5 @@
 package nl.flyingtiger.nsproject;
 
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.MulticastSocket;
-
 /**
  * Created by sander on 5-4-16.
  */
@@ -18,6 +14,7 @@ public class Main {
     }
 
     public Main () {
+        /*
         MulticastSocket socket = null;
 
         try {
@@ -33,6 +30,7 @@ public class Main {
 
         Broadcast caster = new Broadcast(trans, forwardingTable);
         caster.start();
-
+        */
+        System.out.println("tieten");
     }
 }

@@ -2,7 +2,6 @@ package nl.flyingtiger.nsproject.test; /**
  * Created by Ties on 5-4-2016.
  */
 
-import org.junit.Assert;
 import nl.flyingtiger.nsproject.ForwardingTable;
 import nl.flyingtiger.nsproject.Transmission;
 import org.junit.Before;
@@ -32,7 +31,5 @@ public class SimpleBroadcastTest {
     public void test() {
         transmission.send("hoi broertjes!!");
         System.out.println("Broadcasted");
-
-        Assert.assertEquals(true, true);
     }
 }
