@@ -3,6 +3,7 @@ package nl.flyingtiger.nsproject;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.MulticastSocket;
+import java.nio.charset.Charset;
 import java.util.Observable;
 
 /**
@@ -40,7 +41,15 @@ public class Transmission extends Observable {
     }
 
     public void send(String msg) {
-
+        byte[] msgBytes = msg.getBytes(Charset.forName("UTF-8"));
+        DatagramPacket packet = new DatagramPacket(msgBytes, msgBytes.length);
+        packet.setAddress(socket.getInetAddress());
+        packet.setPort(socket.getPort());
+        try {
+            socket.send(packet);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
