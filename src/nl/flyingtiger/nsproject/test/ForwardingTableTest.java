@@ -1,7 +1,6 @@
-package nl.flyingtiger.nsproject.test;
-
 import nl.flyingtiger.nsproject.ForwardingTable;
 import nl.flyingtiger.nsproject.Util.TableEntry;
+import nl.flyingtiger.nsproject.Util.utils;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,10 +21,12 @@ import static org.junit.Assert.*;
 public class ForwardingTableTest {
 
     private ForwardingTable table;
+    private utils utils = new utils();
 
     @Before
     public void setUp() throws Exception {
         table = new ForwardingTable();
+
     }
 
 
@@ -38,18 +39,6 @@ public class ForwardingTableTest {
             assertTrue(tableEntry.getValue().getHopCount() == 0);
             assertTrue(tableEntry.getValue().getSeqNumber() == 0);
         }
-
-        char[] buffer = table.toString().toCharArray();
-        byte[] b = new byte[buffer.length << 1];
-        CharBuffer cBuffer = ByteBuffer.wrap(b).asCharBuffer();
-        for(int i = 0; i < buffer.length; i++)
-        cBuffer.put(buffer[i]);
-
-        cBuffer = ByteBuffer.wrap(b).asCharBuffer();
-
-        System.out.println(table.toString());
-        System.out.println(b);
-        System.out.println(cBuffer.toString());
     }
 
 }
