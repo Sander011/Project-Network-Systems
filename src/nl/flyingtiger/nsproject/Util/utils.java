@@ -16,4 +16,18 @@ public class utils {
         return new byte[buffer.length << 1];
     }
 
+
+    /**
+     * Convert a byte array of variable length to a int
+     * @param bytes
+     * @return
+     */
+    public int bytesToInt(byte[] bytes) {
+        int res = 0;
+        for (int i = 0; i < bytes.length; i++) {
+            res |= bytes[i] << ((bytes.length - 1) * 8 - (8 * i));
+        }
+        return res;
+    }
+
 }

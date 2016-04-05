@@ -9,11 +9,11 @@ import java.io.UnsupportedEncodingException;
  */
 public class Header {
 
-    public static final int AMOUNT_OF_BYTES_IN_HEADER = 14;
+    public static final int AMOUNT_OF_BYTES_IN_HEADER = 20;
 
     public static final int AMOUNT_OF_BYTES_PACKET_TYPE = 1;
-    public static final int AMOUNT_OF_BYTES_SOURCE_ADDRESS = 1;
-    public static final int AMOUNT_OF_BYTES_DESTINATION_ADDRESS = 1;
+    public static final int AMOUNT_OF_BYTES_SOURCE_ADDRESS = 4;
+    public static final int AMOUNT_OF_BYTES_DESTINATION_ADDRESS = 4;
     public static final int AMOUNT_OF_BYTES_SEQUENCE_NUMBER = 4;
     public static final int AMOUNT_OF_BYTES_ACKNOWLEDGEMENT_NUMBER = 4;
     public static final int AMOUNT_OF_BYTES_CHECKSUM = 2;
@@ -56,14 +56,7 @@ public class Header {
     }
 
 
-    public int bytesToInt(byte[] bytes) {
-        int res = 0;
-        for (int i = 0; i < bytes.length; i++) {
-            res |= bytes[i] << ((bytes.length - 1) * 8 - (8 * i));
-        }
 
-        return res;
-    }
 
 
     /**
@@ -81,11 +74,11 @@ public class Header {
 
         System.arraycopy(bytes, 0, bytesTypePacket, 0, AMOUNT_OF_BYTES_PACKET_TYPE);
         System.arraycopy(bytes, 0, bytesSourceAddress, 1, AMOUNT_OF_BYTES_SOURCE_ADDRESS);
-        System.arraycopy(bytes, 0, bytesDestinationAddress, 2, AMOUNT_OF_BYTES_DESTINATION_ADDRESS);
-        System.arraycopy(bytes, 0, bytesSequenceNumber, 3, AMOUNT_OF_BYTES_SEQUENCE_NUMBER);
-        System.arraycopy(bytes, 0, bytesAcknowledgementNumber, 7, AMOUNT_OF_BYTES_ACKNOWLEDGEMENT_NUMBER);
-        System.arraycopy(bytes, 0, bytesChecksum, 11, AMOUNT_OF_BYTES_CHECKSUM);
-        System.arraycopy(bytes, 0, bytesEncryption, 13, AMOUNT_OF_BYTES_ENCRYPTION);
+        System.arraycopy(bytes, 0, bytesDestinationAddress, 5, AMOUNT_OF_BYTES_DESTINATION_ADDRESS);
+        System.arraycopy(bytes, 0, bytesSequenceNumber, 9, AMOUNT_OF_BYTES_SEQUENCE_NUMBER);
+        System.arraycopy(bytes, 0, bytesAcknowledgementNumber, 13, AMOUNT_OF_BYTES_ACKNOWLEDGEMENT_NUMBER);
+        System.arraycopy(bytes, 0, bytesChecksum, 17, AMOUNT_OF_BYTES_CHECKSUM);
+        System.arraycopy(bytes, 0, bytesEncryption, 19, AMOUNT_OF_BYTES_ENCRYPTION);
 
 
         try{
