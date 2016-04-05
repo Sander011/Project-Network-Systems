@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 /**
  * Created by sander on 5-4-16.
  */
-public class utils {
+public class Utils {
 
     public String ByteToString(byte[] bytes) {
         return ByteBuffer.wrap(bytes).asCharBuffer().toString();

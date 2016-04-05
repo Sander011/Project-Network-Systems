@@ -1,6 +1,7 @@
 package nl.flyingtiger.nsproject;
 
 import nl.flyingtiger.nsproject.Util.TypeOfPacket;
+import nl.flyingtiger.nsproject.Util.Utils;
 
 import java.io.UnsupportedEncodingException;
 
@@ -56,9 +57,6 @@ public class Header {
     }
 
 
-
-
-
     /**
      * NOT YET IMPLEMENTED
      * @param bytes
@@ -87,6 +85,10 @@ public class Header {
         } catch (UnsupportedEncodingException e){
             System.out.println("Cannot encode Source Address/Destination Address with UTF-8");
         }
+
+
+
+        
 
     }
 
@@ -141,7 +143,7 @@ public class Header {
 
         System.out.println(test[0]);
 
-        System.out.println(new Header().bytesToInt(test));
+        System.out.println(new Utils().bytesToInt(test));
 
     }
 }
