@@ -5,6 +5,7 @@ package nl.flyingtiger.nsproject.test; /**
 import nl.flyingtiger.nsproject.ForwardingTable;
 import nl.flyingtiger.nsproject.Transmission;
 import org.junit.Before;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.net.MulticastSocket;
@@ -48,4 +49,7 @@ public class SimpleReceiveTest {
         transmission.addObserver(receiver);
         receiver.start();
     }
+
+    @Test
+    private void test() {}
 }
