@@ -1,4 +1,4 @@
-package Util;
+package nl.flyingtiger.nsproject.Util;
 
 /**
  * Created by Jasper on 5-4-2016.
