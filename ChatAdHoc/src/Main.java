@@ -8,23 +8,27 @@ import java.net.MulticastSocket;
 public class Main {
 
     private final static int SOCKET_NUMBER = 2500;
+    private final static String GROUP_ADDRESS = "224.43.75.410";
 
     public static void main(String[] args) {
         Main main = new Main();
     }
 
     public Main () {
-        Broadcast caster = new Broadcast();
+        connectToGroup();
+
+        Transmission trans = new Transmission();
+
+        Broadcast caster = new Broadcast(trans);
         caster.start();
 
-
-        connectToGroup();
     }
 
     private void connectToGroup() {
         try {
-            InetAddress group = InetAddress.getByName("");
+            InetAddress group = InetAddress.getByName(GROUP_ADDRESS);
             MulticastSocket socket = new MulticastSocket(SOCKET_NUMBER);
+            socket.joinGroup(group);
         } catch (IOException e) {
             e.printStackTrace();
         }
