@@ -2,6 +2,8 @@ package nl.flyingtiger.nsproject;
 
 import nl.flyingtiger.nsproject.Util.TypeOfPacket;
 
+import java.io.UnsupportedEncodingException;
+
 /**
  * Created by Jasper on 5-4-2016.
  */
@@ -28,6 +30,10 @@ public class Header {
     private int encryption;
 
 
+
+    public Header() {
+    }
+
     /**
      * Instantiates a header of a packet
      * @param packetType
@@ -49,6 +55,17 @@ public class Header {
         this.encryption = encryption;
     }
 
+
+    public int bytesToInt(byte[] bytes) {
+        int res = 0;
+        for (int i = 0; i < bytes.length; i++) {
+            res |= bytes[i] << ((bytes.length - 1) * 8 - (8 * i));
+        }
+
+        return res;
+    }
+
+
     /**
      * NOT YET IMPLEMENTED
      * @param bytes
@@ -62,8 +79,21 @@ public class Header {
         byte[] bytesChecksum = new byte[AMOUNT_OF_BYTES_CHECKSUM];
         byte[] bytesEncryption = new byte[AMOUNT_OF_BYTES_ENCRYPTION];
 
-        
+        System.arraycopy(bytes, 0, bytesTypePacket, 0, AMOUNT_OF_BYTES_PACKET_TYPE);
+        System.arraycopy(bytes, 0, bytesSourceAddress, 1, AMOUNT_OF_BYTES_SOURCE_ADDRESS);
+        System.arraycopy(bytes, 0, bytesDestinationAddress, 2, AMOUNT_OF_BYTES_DESTINATION_ADDRESS);
+        System.arraycopy(bytes, 0, bytesSequenceNumber, 3, AMOUNT_OF_BYTES_SEQUENCE_NUMBER);
+        System.arraycopy(bytes, 0, bytesAcknowledgementNumber, 7, AMOUNT_OF_BYTES_ACKNOWLEDGEMENT_NUMBER);
+        System.arraycopy(bytes, 0, bytesChecksum, 11, AMOUNT_OF_BYTES_CHECKSUM);
+        System.arraycopy(bytes, 0, bytesEncryption, 13, AMOUNT_OF_BYTES_ENCRYPTION);
 
+
+        try{
+            this.sourceAddress = new String(bytesSourceAddress, "UTF-8");
+            this.destinationAddress = new String(bytesDestinationAddress, "UTF-8");
+        } catch (UnsupportedEncodingException e){
+            System.out.println("Cannot encode Source Address/Destination Address with UTF-8");
+        }
 
     }
 
@@ -106,5 +136,19 @@ public class Header {
 
 
         return null;
+    }
+
+
+    public static void main(String[] args){
+        byte[] test = new byte[3];
+
+        test[0] = 1;
+        test[1] = 1;
+        test[2] = 1;
+
+        System.out.println(test[0]);
+
+        System.out.println(new Header().bytesToInt(test));
+
     }
 }
