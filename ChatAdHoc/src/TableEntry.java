@@ -24,4 +24,16 @@ public class TableEntry {
     public int getSeqNumber() {
         return seqNumber;
     }
+
+    public String toString() {
+        String result = "";
+
+        result += getNextHop();
+        result += " ";
+        result += getHopCount();
+        result += " ";
+        result += getSeqNumber();
+
+        return result;
+    }
 }

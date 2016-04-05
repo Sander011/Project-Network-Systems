@@ -26,7 +26,10 @@ public class ForwardingTable {
         String result = "";
 
         for (Map.Entry<String, TableEntry> tableEntry : table.entrySet()) {
-
+            result += tableEntry.getKey();
+            result += " ";
+            result += tableEntry.getValue().toString();
+            result += "\n";
         }
 
 
