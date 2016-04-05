@@ -7,6 +7,7 @@ public class Main {
     }
 
     public Main () {
+        Broadcast caster = new Broadcast();
 
     }
 
