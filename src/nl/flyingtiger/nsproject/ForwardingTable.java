@@ -2,6 +2,7 @@ package nl.flyingtiger.nsproject;
 
 import nl.flyingtiger.nsproject.Util.Payload;
 import nl.flyingtiger.nsproject.Util.TableEntry;
+import nl.flyingtiger.nsproject.Util.utils;
 
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
@@ -12,9 +13,9 @@ import java.util.Map;
  * Created by sander on 5-4-16.
  */
 public class ForwardingTable implements Payload {
-    String address = "";
-
-    HashMap<String, TableEntry> table = new HashMap<String, TableEntry>();
+    private String address = "";
+    private utils utils = new utils();
+    private HashMap<String, TableEntry> table = new HashMap<String, TableEntry>();
 
     public ForwardingTable() {
         try {
@@ -45,6 +46,6 @@ public class ForwardingTable implements Payload {
 
     @Override
     public byte[] toByteArray() {
-        return table.toString().getBytes();
+        return utils.StringToByteArray(table.toString());
     }
 }
