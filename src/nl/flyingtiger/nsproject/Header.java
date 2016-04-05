@@ -77,7 +77,7 @@ public class Header {
         System.arraycopy(bytes, 0, bytesAcknowledgementNumber, 13, AMOUNT_OF_BYTES_ACKNOWLEDGEMENT_NUMBER);
         System.arraycopy(bytes, 0, bytesChecksum, 17, AMOUNT_OF_BYTES_CHECKSUM);
         System.arraycopy(bytes, 0, bytesEncryption, 19, AMOUNT_OF_BYTES_ENCRYPTION);
-
+        
 
         try{
             this.sourceAddress = new String(bytesSourceAddress, "UTF-8");
@@ -86,10 +86,11 @@ public class Header {
             System.out.println("Cannot encode Source Address/Destination Address with UTF-8");
         }
 
+        Utils util = new Utils();
 
-
-        
-
+        this.sequenceNumber = util.bytesToInt(bytesSequenceNumber);
+        this.acknowledgementNumber = util.bytesToInt(bytesAcknowledgementNumber);
+        this.checkSum = util.bytesToInt(bytesChecksum);
     }
 
     public TypeOfPacket getPacketType() {
