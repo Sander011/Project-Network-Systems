@@ -14,7 +14,11 @@ public class Broadcast implements Runnable {
     public void run() {
         boolean isActive = true;
         while(isActive) {
-            trans.send();
+            trans.send(forwardingTable.toString());
+
+            try {
+                Thread.sleep(TIME * 1000);
+            } catch (InterruptedException ignored) {}
         }
     }
 
